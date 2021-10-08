@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="default">
+
+        <class>entities.Evaluation</class>
+        <class>entities.Message</class>
+        <class>entities.Naturetravail</class>
+        <class>entities.Offretravail</class>
+        <class>entities.OffretravailNaturetravail</class>
+        <class>entities.Personne</class>
+        <class>entities.Professionel</class>
+        <class>entities.Soumission</class>
+        <class>entities.Utilisateur</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@144.217.163.57:1521:XE"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.connection.username" value="equipe3_a10"/>
+            <property name="hibernate.connection.password" value="any33pw313"/>
+            <property name="show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
