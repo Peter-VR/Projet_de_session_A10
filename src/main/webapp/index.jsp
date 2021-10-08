@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
+<h1><%= "Hello World!" %></h1>
 <br/>
 <a href="hello-servlet">Create new user with id=2</a>
 <br />
 <a href="OffreTravailServlet">Save Offre Travail</a>
 <br />
 <a href="ListOffreTravailServlet">List Offre Travail</a>
+<br/>
+<a href="insertoffretravail.jsp">Insert Offre Travail</a>
 
 </body>
 </html>
