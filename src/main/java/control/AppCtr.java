@@ -34,7 +34,13 @@ public class AppCtr {
 //        Supression d'un utilisateur dans la base de donnée
 //        Note que la supression de l'utilisateur se fait mais l'objet Personnne
 //        ayant la même clé primaire n'est pas détruit
-        UtilisateurDao.delete(1);
+//        UtilisateurDao.delete(2);
+
+        //Supression d'une personne dans la base de donnée
+//        PersonneDao.delete(1);
+
+        //Update d'une personne dans la base de donnée
+        PersonneDao.update(2, "PedroTest");
 
 
 

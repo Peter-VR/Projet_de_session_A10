@@ -48,10 +48,25 @@ public class PersonneDao {
     }
 
     //Updating - modification
-    public static void update(int primaryKey){
+    public static void update(int primaryKey, String name){
         //Creation de l'objet transaction
         EntityTransaction transaction = entityManager.getTransaction();
 
+        try {
+            //Commencer la transaction
+            transaction.begin();
+            //Trouver la personne dans la base de donnée ne fournissant la class et la clé primaire de l'objet
+            Personne personne = entityManager.find(Personne.class, primaryKey);
+            //Changement de l'attribut
+            personne.setNom(name);
+            //Update dans la base de donné
+            entityManager.merge(personne);
+            //commit à la base de donnée
+            transaction.commit();
+        } finally {
+            entityManager.close();
+            entityManagerFactory.close();
+        }
 
 
 
