@@ -9,7 +9,11 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="hello-servlet">Create new user with id=2</a>
+<br />
+<a href="OffreTravailServlet">Save Offre Travail</a>
+<br />
+<a href="ListOffreTravailServlet">List Offre Travail</a>
 
 </body>
 </html>

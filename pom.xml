@@ -51,6 +51,12 @@
             <artifactId>oracle-r2dbc</artifactId>
             <version>0.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
