@@ -19,7 +19,7 @@
             <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
             <property name="hibernate.connection.username" value="equipe3_a10"/>
             <property name="hibernate.connection.password" value="any33pw313"/>
-            <property name="show_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>
