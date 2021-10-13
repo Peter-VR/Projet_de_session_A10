@@ -7,7 +7,7 @@
 <body>
 <h1><%= "Hello World!" %></h1>
 <br/>
-<a href="hello-servlet">Create new user with id=2</a>
+<a href="hello-servlet">Create new user with id=4</a>
 <br />
 <a href="OffreTravailServlet">Save Offre Travail</a>
 <br />

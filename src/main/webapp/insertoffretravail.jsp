@@ -24,32 +24,37 @@
     <title>Inserter Offre Travail</title>
 </head>
 <body>
-<h1>Insert Offre Travail</h1>
+
 <div class="container">
     <div class="row">
         <div class="col-6">
-<form>
-    <div class="form-group">
-        <label for="nom">Nom:</label>
-        <input type="text" class="form-control" id="nom">
+            <h1>Insert Offre Travail</h1>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="description">Description:</label>
-        <input type="text" class="form-control" id="description">
-    </div>
-    <div class="form-group">
-        <label for="budget">Budget:</label>
-        <input type="text" class="form-control" id="budget">
-    </div>
-    <div class="form-group">
-        <label for="duree">Duree:</label>
-        <input type="text" class="form-control" id="duree">
-    </div>
+    <div class="row">
+        <div class="col-6">
+            <form action="InsertOffreTravailServlet" method="post">
+                <div class="form-group">
+                    <label for="nom">Nom:</label>
+                    <input type="text" class="form-control" id="nom" name="nom">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" name="description">
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget:</label>
+                    <input type="text" class="form-control" id="budget" name="budget">
+                </div>
+                <div class="form-group">
+                    <label for="duree">Duree:</label>
+                    <input type="text" class="form-control" id="duree" name="duree">
+                </div>
 
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-    </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>

@@ -60,7 +60,31 @@ public class OffreTravailDAO {
     }
 
     public static List<Offretravail> getOffresTravails(){
-        Query query = entityManager.createQuery("select a from Offretravail a", Offretravail.class);
-        return query.getResultList();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            Query query = entityManager.createQuery("select a from Offretravail a", Offretravail.class);
+            return query.getResultList();
+
+
+        } finally {
+            entityManager.close();
+            entityManagerFactory.close();
+        }
+
+    }
+
+    public static int nextID() {
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            Query query = entityManager.createQuery("select a from Offretravail a", Offretravail.class);
+            return query.getResultList().size()+1;
+
+
+        } finally {
+            entityManager.close();
+            entityManagerFactory.close();
+        }
     }
 }

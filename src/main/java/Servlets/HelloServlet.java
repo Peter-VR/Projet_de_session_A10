@@ -6,6 +6,8 @@ import entities.Personne;
 import entities.Utilisateur;
 
 import java.io.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
@@ -17,38 +19,38 @@ public class HelloServlet extends HttpServlet {
         message = "Hello World!";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
         //Creation d'un objet de classe Personne
         Personne person1 = new Personne();
         //Attribution des attributs à l'objet person1
-        person1.setIdpersonne(3);
-        person1.setNom("JetBrains3");
-        person1.setPrenom("IntelliJ3");
-        person1.setCourriel("mymail@google.com3");
-        person1.setMotpasse("anypw3");
+        int idPersonne = 6;
+        person1.setIdpersonne(idPersonne);
+        person1.setNom("JetBrains4");
+        person1.setPrenom("IntelliJ4");
+        person1.setCourriel("mymail@google.com4");
+        person1.setMotpasse("anypw4");
         //Insertion de l'objet Personne dans la base de donnée
         PersonneDao.insert(person1);
 
         //Creation d'un objet de classe Utilisateur
         Utilisateur user1 = new Utilisateur();
         //Attribution des attributs à l'objet utilisateur
-        user1.setPersonneidpersonne(3);
-        user1.setAdresse("123 Fake Street3");
-        user1.setVille("Fake City3");
-        user1.setPostalcode("H1H1H13");
-        user1.setProvince("Province3");
+        user1.setPersonneidpersonne(idPersonne);
+        user1.setAdresse("123 Fake Street4");
+        user1.setVille("Fake City4");
+        user1.setPostalcode("H1H1H14");
+        user1.setProvince("Province4");
         //Insertion de l'objet Utilisateur dans la base de donnée
         UtilisateurDao.insert(user1);
 
-        message=user1.getAdresse();
+        HttpSession session = request.getSession();
+        session.setAttribute("idPersonne",idPersonne);
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("index.jsp");
+        disp.forward(request, response);
+
     }
 
     public void destroy() {
