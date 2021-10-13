@@ -1,4 +1,4 @@
-package com.example.webappv6;
+package Servlets;
 
 import dao.OffreTravailDAO;
 import entities.Offretravail;

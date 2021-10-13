@@ -1,4 +1,4 @@
-package com.example.webappv6;
+package Servlets;
 
 import dao.OffreTravailDAO;
 import entities.Offretravail;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.Date;
 
 @WebServlet(name = "OffreTravailServlet", value = "/OffreTravailServlet")
-public class OffreTravailServlet extends HttpServlet {
+public class InsertOffreTravailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Offretravail newOffreTravail = new Offretravail();
