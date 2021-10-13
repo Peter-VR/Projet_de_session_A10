@@ -19,6 +19,8 @@ public class ListOffreTravailServlet extends HttpServlet {
         request.setAttribute("mylist", list);
         System.out.println(list);
 
+
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("listoffretravail.jsp");
         dispatcher.forward( request, response );
 
