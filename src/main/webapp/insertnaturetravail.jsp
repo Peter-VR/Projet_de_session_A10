@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
     <title>Title</title>
@@ -24,11 +25,12 @@
 
 </head>
 <body>
-
+<fmt:setLocale value="es_ES"/>
+<fmt:bundle basename="langue">
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h1>Insert Offre Travail</h1>
+            <h1>Insert <fmt:message key="nature_travail"/></h1>
         </div>
     </div>
     <div class="row">
