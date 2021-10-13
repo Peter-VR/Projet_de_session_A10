@@ -48,7 +48,7 @@
                 <a href="insertoffretravail.jsp"><fmt:message key="insert_work_offer"/></a>
                 <a href="#">Search Work Offert</a>
                 <a href="ListOffreTravailServlet"><fmt:message key="list_of_offerts"/></a>
-                <a href="#">List Users</a>
+                <a href="DeleteOfferServlet"><fmt:message key="delete_offert"/></a>
                 <a href="#">Create Soumission</a>
                 <a href="#">List of Soumissions</a>
                 <a href="#">Search Soumission</a>
@@ -79,16 +79,6 @@
 
             </div>
         </div>
-        <%
-            if(null == session.getAttribute("idPersonne")){
-                out.println("<button class=\"dropbtn\" onclick=\"document.getElementById('id01').style.display='block'\" style=\"width:auto;\">Login</button>");
-
-            }
-            else
-            {
-                out.println("<a href=\"logoutServlet\">Logout</a>");
-            }
-        %>
 
         <div class="dropdown">
             <button class="dropbtn"><fmt:message key="language"/>
@@ -100,12 +90,21 @@
                 <a href="<fmt:setLocale value="es_ES"/>"><fmt:message key="spanish"/></a>
             </div>
         </div>
+        <%
+            if (null == session.getAttribute("idPersonne")) {
+        %>
+        <button class="dropbtn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+            Login
+        </button>
+        <%
+        } else { %>
+        <a href="logoutServlet">Logout</a>
+        <% }
+        %>
     </div>
 
 
 <h1><fmt:message key="title"/></h1>
-
-
 
 
 

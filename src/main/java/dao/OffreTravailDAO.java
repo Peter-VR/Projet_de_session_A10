@@ -8,27 +8,30 @@ import java.util.List;
 
 public class OffreTravailDAO {
 
-    //Entity Manager Factory
-    public static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    public static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
     //Insertion
     public static void insert(Offretravail offretravail){
         //Creation de l'objet transaction
-        EntityTransaction transaction = entityManager.getTransaction();
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "default" );
+        EntityManager entitymanager = emfactory.createEntityManager();
+
+        EntityTransaction transaction = entitymanager.getTransaction();
 
         try {
             transaction.begin();
-            entityManager.persist(offretravail);
+            entitymanager.persist(offretravail);
             transaction.commit();
         } finally {
-            entityManager.close();
-            entityManagerFactory.close();
+            entitymanager.close();
+            emfactory.close();
         }
     }
 
     public static void delete(int idOffreTravail){
+
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "default" );
+        EntityManager entityManager = emfactory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
         Offretravail offretravail = entityManager.find(Offretravail.class, idOffreTravail);
@@ -38,11 +41,14 @@ public class OffreTravailDAO {
             transaction.commit();
         } finally {
             entityManager.close();
-            entityManagerFactory.close();
+            emfactory.close();
         }
     }
 
     public static void updateDescription(int idOffreTravail, String description){
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "default" );
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
         Offretravail offretravail = entityManager.find(Offretravail.class, idOffreTravail);
@@ -60,6 +66,9 @@ public class OffreTravailDAO {
     }
 
     public static List<Offretravail> getOffresTravails(){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "default" );
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
@@ -75,6 +84,9 @@ public class OffreTravailDAO {
     }
 
     public static int nextID() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "default" );
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
