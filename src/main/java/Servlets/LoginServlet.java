@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int id = Integer.valueOf(request.getParameter("uname"));
+        int id = Integer.valueOf(request.getParameter("id"));
         String password = request.getParameter("psw");
 
         System.out.println(id + password);

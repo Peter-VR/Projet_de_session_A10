@@ -25,9 +25,23 @@
 
 </head>
 <body>
-<fmt:setLocale value="es_ES"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:bundle basename="langue">
-<div class="container">
+    <%
+        if(null == session.getAttribute("idPersonne")){
+    %>
+    <h3>User not logged in.</h3>
+    <%
+    }
+    else
+    { %>
+    <h3>User logged in.</h3>
+    <%
+        }
+    %>
+    <jsp:include page="navbar.jsp" />
+
+    <div class="container">
     <div class="row">
         <div class="col-6">
             <h1>Insert <fmt:message key="nature_travail"/></h1>
