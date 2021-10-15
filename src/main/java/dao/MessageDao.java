@@ -21,23 +21,10 @@ public class MessageDao {
         }
     }
 
-    public static void delete(int id) {
+    public static void update(Message entity, String contenu) {
         var manager = factory.createEntityManager();
         try {
             manager.getTransaction().begin();
-            var entity = manager.find(Message.class, id);
-            manager.remove(entity);
-            manager.getTransaction().commit();
-        } finally {
-            manager.close();
-        }
-    }
-
-    public static void update(int id, String contenu) {
-        var manager = factory.createEntityManager();
-        try {
-            manager.getTransaction().begin();
-            var entity = manager.find(Message.class, id);
             entity.setContenu(contenu);
             manager.merge(entity);
             manager.getTransaction().commit();
@@ -46,15 +33,37 @@ public class MessageDao {
         }
     }
 
-    public static List<Message> getAll() {
+    public static void delete(Message entity) {
         var manager = factory.createEntityManager();
         try {
             manager.getTransaction().begin();
-            var list = manager.createQuery("from Message", Message.class).getResultList();
+            manager.remove(entity);
+            manager.getTransaction().commit();
+        } finally {
+            manager.close();
+        }
+    }
+
+    public static List<Message> find(String hql, Object... params) {
+        var manager = factory.createEntityManager();
+        try {
+            var query = manager.createQuery(hql, Message.class);
+            for (var i = 0; i < params.length; i++)
+                query.setParameter(i + 1, params[i]);
+            manager.getTransaction().begin();
+            var list = query.getResultList();
             manager.getTransaction().commit();
             return list;
         } finally {
             manager.close();
         }
+    }
+
+    public static List<Message> find() {
+        return find("from Message");
+    }
+
+    public static List<Message> findFrom(Integer idPersonne) {
+        return find("from Message m where m.idpersonneenvoyer=?1", idPersonne);
     }
 }
