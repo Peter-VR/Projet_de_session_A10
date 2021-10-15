@@ -90,7 +90,7 @@
         </button>
         <%
         } else { %>
-        <a href="logoutServlet">Logout</a>
+        <a href="LogoutServlet">Logout</a>
         <% }
         %>
 
@@ -151,7 +151,8 @@
                             <td>${element.etatoffre}</td>
                             <td>${element.budget}</td>
                             <td>${element.duree}</td>
-                            <td><a href="DeleteOffreServlet?id=${element.idoffretravail}"><img class="option" src="images/delete.png"></a> </td>
+                            <td><a href="DeleteOffreServlet?id=${element.idoffretravail}">
+                                <img class="option" src="images/delete.png"></a> </td>
                         </tr>
                     </c:forEach>
 

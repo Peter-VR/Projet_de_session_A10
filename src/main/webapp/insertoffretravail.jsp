@@ -88,7 +88,7 @@
         </button>
         <%
         } else { %>
-        <a href="logoutServlet">Logout</a>
+        <a href="LogoutServlet">Logout</a>
         <% }
         %>
 

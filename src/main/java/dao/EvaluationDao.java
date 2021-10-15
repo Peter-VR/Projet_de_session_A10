@@ -21,23 +21,10 @@ public class EvaluationDao {
         }
     }
 
-    public static void delete(int id) {
+    public static void update(Evaluation entity, String commentaire) {
         var manager = factory.createEntityManager();
         try {
             manager.getTransaction().begin();
-            var entity = manager.find(Evaluation.class, id);
-            manager.remove(entity);
-            manager.getTransaction().commit();
-        } finally {
-            manager.close();
-        }
-    }
-
-    public static void update(int id, String commentaire) {
-        var manager = factory.createEntityManager();
-        try {
-            manager.getTransaction().begin();
-            var entity = manager.find(Evaluation.class, id);
             entity.setCommentaire(commentaire);
             manager.merge(entity);
             manager.getTransaction().commit();
@@ -45,6 +32,18 @@ public class EvaluationDao {
             manager.close();
         }
     }
+
+    public static void delete(Evaluation entity) {
+        var manager = factory.createEntityManager();
+        try {
+            manager.getTransaction().begin();
+            manager.remove(entity);
+            manager.getTransaction().commit();
+        } finally {
+            manager.close();
+        }
+    }
+
 
     public static List<Evaluation> getAll() {
         var manager = factory.createEntityManager();

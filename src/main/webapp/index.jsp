@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,23 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
 <fmt:setLocale value="en_US"/>
 <fmt:bundle basename="langue">
     <%
-    if(null == session.getAttribute("idPersonne")){
-        out.println("<h3>User not logged in.</h3>");
-
-    }
-    else
-    {
-        out.println("<h3>User logged in.</h3>");
-    }
+        if (null == session.getAttribute("idPersonne")) {
+            out.println("<h3>User not logged in.</h3>");
+        } else {
+            out.println("<h3>User logged in (ID=" + session.getAttribute("idPersonne") + ").</h3>");
+        }
     %>
     <div class="topnav" id="myTopnav">
-        <a href="index.jps" class="active">Accueil</a>
+        <a href="index.jsp" class="active">Accueil</a>
         <div class="dropdown">
             <button class="dropbtn">Accounts
                 <i class="fa fa-caret-down"></i>
@@ -36,10 +31,8 @@
                 <a href="#">Search Person</a>
                 <a href="#">List Users</a>
                 <a href="#">List Professionals</a>
-
             </div>
         </div>
-
         <div class="dropdown">
             <button class="dropbtn">Work Offerts
                 <i class="fa fa-caret-down"></i>
@@ -48,11 +41,10 @@
                 <a href="insertoffretravail.jsp"><fmt:message key="insert_work_offer"/></a>
                 <a href="#">Search Work Offert</a>
                 <a href="ListOffreTravailServlet"><fmt:message key="list_of_offerts"/></a>
-                <a href="DeleteOfferServlet"><fmt:message key="delete_offert"/></a>
+                <a href="DeleteOffreServlet"><fmt:message key="delete_offert"/></a>
                 <a href="#">Create Soumission</a>
                 <a href="#">List of Soumissions</a>
                 <a href="#">Search Soumission</a>
-
             </div>
         </div>
         <div class="dropdown">
@@ -60,12 +52,11 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Send Message</a>
+                <a href="MessageServlet">Send Message</a>
                 <a href="#">List of Messages</a>
                 <a href="#">Search Message</a>
                 <a href="#">Evaluate work</a>
                 <a href="#">List of Evaluation</a>
-
             </div>
         </div>
         <div class="dropdown">
@@ -76,10 +67,8 @@
                 <a href="#">Create new Nature Travail</a>
                 <a href="#">List of Natures Travail</a>
                 <a href="#">Search Nature Travail</a>
-
             </div>
         </div>
-
         <div class="dropdown">
             <button class="dropbtn"><fmt:message key="language"/>
                 <i class="fa fa-caret-down"></i>
@@ -98,58 +87,48 @@
         </button>
         <%
         } else { %>
-        <a href="logoutServlet">Logout</a>
+        <a href="LogoutServlet">Logout</a>
         <% }
         %>
     </div>
 
 
-<h1><fmt:message key="title"/></h1>
+    <h1><fmt:message key="title"/></h1>
 
 
-
-
-<div id="id01" class="modal">
-
-    <form class="modal-content animate" action="LoginServlet" method="post">
-        <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <img src="images/pngtree-user.jpg" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="container">
-            <label for="uname"><b>Person ID</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
-            <br/>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-            <br/>
-            <button type="submit">Login</button>
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-
-
-        </div>
-
-
-    </form>
-</div>
-
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="LoginServlet" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="images/pngtree-user.jpg" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="uname"><b>Person ID</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+                <br/>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                <br/>
+                <button type="submit">Login</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
 </fmt:bundle>
 
-<script src="js/scripts.js"/>
+<script src="js/scripts.js"></script>
 <script>
     // Get the modal
     var modal = document.getElementById('id01');
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    window.onclick = function (event) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
     }
-
-
 </script>
-
 </body>
 </html>
