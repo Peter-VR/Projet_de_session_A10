@@ -31,8 +31,10 @@
     %>
     <jsp:include page="navbar.jsp" />
 
-<h1><fmt:message key="title"/></h1>
+        <h1><fmt:message key="title"/></h1>
+        <img style="width: 100%;text-align: center" src="images/hiring-contractor.jpg">
 
+    <jsp:include page="footer.jsp"/>
 
 
 </fmt:bundle>

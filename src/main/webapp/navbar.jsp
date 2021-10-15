@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<fmt:setLocale value="${sessionScope.langue}"/>
 <fmt:bundle basename="langue">
 
 <div class="topnav" id="myTopnav">
-  <a href="index.jsp" class="active">Accueil</a>
+  <a href="index.jsp" class="active"><fmt:message key="home"/></a>
   <div class="dropdown">
-    <button class="dropbtn">Accounts
+    <button class="dropbtn"><fmt:message key="accounts"/>
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
@@ -27,17 +27,21 @@
     </button>
     <div class="dropdown-content">
       <a href="insertoffretravail.jsp"><fmt:message key="insert_work_offer"/></a>
-      <a href="#">Search Work Offert</a>
       <a href="ListOffreTravailServlet"><fmt:message key="list_of_offerts"/></a>
-      <a href="DeleteOfferServlet"><fmt:message key="delete_offert"/></a>
+      <a href="ListOffreTravailServlet"><fmt:message key="delete_offert"/></a>
+      <a href="#"><fmt:message key="search_offert"/></a>
+      <%
+        /*
       <a href="#">Create Soumission</a>
       <a href="#">List of Soumissions</a>
       <a href="#">Search Soumission</a>
 
+         */
+      %>
     </div>
   </div>
   <div class="dropdown">
-    <button class="dropbtn">Communication
+    <button class="dropbtn"><fmt:message key="communication"/>
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
@@ -50,7 +54,7 @@
     </div>
   </div>
   <div class="dropdown">
-    <button class="dropbtn">Nature Travail
+    <button class="dropbtn"><fmt:message key="nature_travail"/>
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
@@ -75,11 +79,11 @@
     if (null == session.getAttribute("idPersonne")) {
   %>
   <button class="dropbtn" onclick="window.location='login.jsp'" style="width:auto;">
-    Login
+    <fmt:message key="login"/>
   </button>
   <%
   } else { %>
-  <a href="logoutServlet">Logout</a>
+  <a href="logoutServlet"><fmt:message key="logout"/></a>
   <% }
   %>
 </div>

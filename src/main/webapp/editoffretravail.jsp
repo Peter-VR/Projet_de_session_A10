@@ -57,19 +57,19 @@
             <form action="InsertOffreTravailServlet" method="post">
                 <div style="text-align: right" class="form-group">
                     <label for="nom">Nom:</label>
-                    <input type="text" class="form-control" id="nom" name="nom">
+                    <input type="text" class="form-control" id="nom" name="nom" value="${offre.idoffretravail}">
                 </div>
                 <div style="text-align: right" class="form-group">
                     <label for="description">Description:</label>
-                    <input type="text" class="form-control" id="description" name="description">
+                    <input type="text" class="form-control" id="description" name="description" value="${offre.description}">
                 </div>
                 <div style="text-align: right" class="form-group">
                     <label for="budget">Budget:</label>
-                    <input type="text" class="form-control" id="budget" name="budget">
+                    <input type="text" class="form-control" id="budget" name="budget" value="${offre.budget}">
                 </div>
                 <div style="text-align: right" class="form-group">
                     <label for="duree">Duree:</label>
-                    <input type="text" class="form-control" id="duree" name="duree">
+                    <input type="text" class="form-control" id="duree" name="duree" value="${offre.duree}">
                 </div>
 
 

@@ -1,4 +1,8 @@
-body {margin:0;font-family:Arial}
+body {
+    margin:0 auto;
+    font-family:Arial;
+    width:60%;
+}
 
 .topnav {
     overflow: hidden;
@@ -95,7 +99,7 @@ body {margin:0;font-family:Arial}
     padding-top: 12px;
     padding-bottom: 12px;
     text-align:  center;
-    background-color: #04AA6D;
+    background-color: #059762;
     color: white;
 }
 
@@ -111,7 +115,8 @@ body {margin:0;font-family:Arial}
 
 .option{
     width: 25px;
-    height: 25px;
+    height: 30px;
+    margin: 2px;
 }
 
 @media screen and (max-width: 600px) {

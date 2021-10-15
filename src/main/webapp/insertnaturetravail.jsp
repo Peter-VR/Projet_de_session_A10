@@ -61,6 +61,8 @@
         </div>
     </div>
 </div>
+    <jsp:include page="footer.jsp"/>
+
 </fmt:bundle>
 </body>
 </html>

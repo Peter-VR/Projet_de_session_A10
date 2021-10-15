@@ -1,5 +1,6 @@
 package dao;
 
+import entities.Message;
 import entities.Offretravail;
 
 import javax.persistence.*;
@@ -84,6 +85,10 @@ public class OffreTravailDAO {
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
+            //TODO
+            /*
+            * select max id
+            * */
             Query query = entityManager.createQuery("select a from Offretravail a", Offretravail.class);
             return query.getResultList().size() + 1;
 
@@ -92,5 +97,17 @@ public class OffreTravailDAO {
             entityManager.close();
             entityManagerFactory.close();
         }
+    }
+
+    public static Offretravail getOffre(int id){
+
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = emfactory.createEntityManager();
+
+        Offretravail offretravail = entityManager.find(Offretravail.class, id);
+
+        return offretravail;
+
+
     }
 }

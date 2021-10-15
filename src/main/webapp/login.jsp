@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HP-Desktop
-  Date: 10/14/2021
-  Time: 2:22 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +20,7 @@
     <title>LOGIN</title>
 </head>
 <body>
+
 <fmt:setLocale value="${sessionScope.langue}"/>
 
 <fmt:bundle basename="langue">
@@ -31,7 +28,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 align-content-center">
-            <h1 style="text-align: center">LOGIN FORM</h1>
+            <h1 style="text-align: center"><fmt:message key="login_form"/></h1>
 
 
             <form class="modal-content animate" action="LoginServlet" method="post">
@@ -40,18 +37,19 @@
                 </div>
 
                 <div class="container">
-                    <label for="id"><b>Person ID</b></label>
-                    <input type="text" placeholder="Enter ID" name="id" id="id" required>
+                    <label for="id"><b><fmt:message key="person_id"/></b></label>
+                    <input type="text" placeholder="<fmt:message key="person_id"/>" name="id" id="id" required>
                     <br/>
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                    <label for="psw"><b><fmt:message key="password"/></b></label>
+                    <input type="password" placeholder="<fmt:message key="password"/>" name="psw" id="psw" required>
                     <br/>
-                    <button type="submit">Login</button>
-                    <button type="reset" class="cancelbtn">Reset</button>
+                    <button type="submit"><fmt:message key="login"/></button>
+                    <button type="reset" class="cancelbtn"><fmt:message key="reset"/></button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+</fmt:bundle>
 </body>
 </html>

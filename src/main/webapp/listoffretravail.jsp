@@ -7,8 +7,6 @@
 <head>
     <title>Liste Offre Travail</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/style.css">
@@ -39,7 +37,7 @@
             if (null == session.getAttribute("idPersonne")) { %>
         <div class="row">
             <div class="col-6">
-                <button class="dropbtn" onclick="window.location='login.jsp'" style="width:auto;">Login
+                <button class="dropbtn" onclick="window.location='login.jsp'" style="width:auto;"><fmt:message key="login"/>
                 </button>
             </div>
         </div>
@@ -56,13 +54,13 @@
             <c:if test="${not empty mylist}">
                 <table class="table" id="offerts">
                     <tr>
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Etat Offre</th>
-                        <th>Budget</th>
-                        <th>Duree</th>
-                        <th>Option</th>
+                        <th><fmt:message key="ID"/></th>
+                        <th><fmt:message key="name"/></th>
+                        <th><fmt:message key="description"/></th>
+                        <th><fmt:message key="etat_offer"/></th>
+                        <th><fmt:message key="budget"/></th>
+                        <th><fmt:message key="duree"/></th>
+                        <th><fmt:message key="options"/></th>
                     </tr>
 
                     <c:forEach var="element" items="${mylist}">
@@ -73,14 +71,16 @@
                             <td>${element.etatoffre}</td>
                             <td>${element.budget}</td>
                             <td>${element.duree}</td>
-                            <td><a href="DeleteOffreServlet?id=${element.idoffretravail}"><img class="option" src="images/delete.png"></a> </td>
+                            <td><a href="DeleteOffreServlet?id=${element.idoffretravail}"><img class="option" src="images/delete.png"></a>
+                            <a href="EditOffreServlet?id=${element.idoffretravail}"><img class="option" src="images/edit.png"></a> </td>
+
                         </tr>
                     </c:forEach>
 
                 </table>
             </c:if>
             <c:if test="${empty mylist}">
-                <h2>Liste vide</h2>
+                <h2><fmt:message key="empty_list"/></h2>
             </c:if>
         </div>
 
@@ -92,7 +92,7 @@
         }
     %>
 
-
+            <jsp:include page="footer.jsp"/>
 
 
 </fmt:bundle>
