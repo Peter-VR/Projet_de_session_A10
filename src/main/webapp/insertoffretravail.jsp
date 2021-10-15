@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,24 +14,8 @@
 
 </head>
 <body>
-<%
-    if(null == session.getAttribute("langue")){
-%>
-<fmt:setLocale value="en_EN"/>
-<%
-}
-else
-{
-    if(session.getAttribute("langue")=="en_EN") %>
-<fmt:setLocale value="en_EN"/>
-<%if(session.getAttribute("langue")=="fr_FR") %>
-<fmt:setLocale value="fr_FR"/>
-<%if(session.getAttribute("langue")=="es_ES") %>
-<fmt:setLocale value="es_ES"/>
+<fmt:setLocale value="${sessionScope.langue}"/>
 
-<%
-    }
-%>
 <fmt:bundle basename="langue">
     <%
         if(null == session.getAttribute("idPersonne")){

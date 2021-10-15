@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Locale;
 
 @WebServlet(name = "LangueServlet", value = "/LangueServlet")
 public class LangueServlet extends HttpServlet {
@@ -16,8 +17,21 @@ public class LangueServlet extends HttpServlet {
 
         String newlangue= request.getParameter("lang");
 
-        if (newlangue!=null)
-            session.setAttribute("langue",newlangue);
+        if (newlangue.equals("en_US"))
+        {
+            Locale newLocal = new Locale("en", "US");
+            session.setAttribute("langue", newLocal);
+        }
+        else if (newlangue.equals("fr_FR")){
+            Locale newLocal = new Locale("fr", "FR");
+            session.setAttribute("langue", newLocal);
+        }
+        else
+        {
+            Locale newLocal = new Locale("es", "ES");
+            session.setAttribute("langue", newLocal);
+        }
+
 
         RequestDispatcher disp = request.getRequestDispatcher("index.jsp");
         disp.forward(request, response);

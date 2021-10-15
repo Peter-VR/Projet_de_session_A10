@@ -1,28 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%
-  if(null == session.getAttribute("langue")){
-%>
-<fmt:setLocale value="en_EN"/>
-<%
-}
-else
-{
-  if(session.getAttribute("langue").equals("en_EN")) %>
-<fmt:setLocale value="en_EN"/>
-<% if(session.getAttribute("langue").equals("fr_FR")) %>
-<fmt:setLocale value="fr_FR"/>
-<% if(session.getAttribute("langue").equals("es_ES")) %>
-<fmt:setLocale value="es_ES"/>
 
-<%
-  }
-%>
 <fmt:bundle basename="langue">
-
-
-
 
 <div class="topnav" id="myTopnav">
   <a href="index.jsp" class="active">Accueil</a>
@@ -41,7 +22,7 @@ else
   </div>
 
   <div class="dropdown">
-    <button class="dropbtn">Work Offerts
+    <button class="dropbtn"><fmt:message key="offre"/>
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
@@ -85,7 +66,7 @@ else
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="LangueServlet?lang=en_EN"><fmt:message key="english"/></a>
+      <a href="LangueServlet?lang=en_US"><fmt:message key="english"/></a>
       <a href="LangueServlet?lang=fr_FR"><fmt:message key="french"/></a>
       <a href="LangueServlet?lang=es_ES"><fmt:message key="spanish"/></a>
     </div>

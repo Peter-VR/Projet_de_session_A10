@@ -1,6 +1,7 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,36 +13,9 @@
 
 </head>
 <body>
-${sessionScope.langue}
-<%
 
-    if(null == session.getAttribute("langue")){
-%>
-<fmt:setLocale value="en_EN"/>
-<%
-}
-else
-{
-    if(session.getAttribute("langue").equals("en_EN")) %>
-        <fmt:setLocale value="en_EN"/>
-    <% if(session.getAttribute("langue").equals("fr_FR")) %>
-        <fmt:setLocale value="fr_FR"/>
-    <% if(session.getAttribute("langue").equals("es_ES")) %>
-        <fmt:setLocale value="es_ES"/>
+<fmt:setLocale value="${sessionScope.langue}"/>
 
-<%
-    }
-%>
-<%
-    /*
-<c:if test="${sessionScope.langue == null}">
-    <fmt:setLocale value="en_EN"/>
-</c:if>
-<c:if test="${sessionScope.langue != null}">
-    <fmt:setLocale value="${sessionScope.langue}"/>
-</c:if>
-*/
-%>
 <fmt:bundle basename="langue">
     <%
     if(null == session.getAttribute("idPersonne")){
