@@ -1,6 +1,6 @@
 body {
     margin:0 auto;
-    font-family:Arial;
+    font-family: Arial, serif;
     width:60%;
 }
 
@@ -14,9 +14,9 @@ body {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 .active {
@@ -34,16 +34,15 @@ body {
 }
 
 .dropdown .dropbtn {
-    font-size: 17px;
+    font-size: 15px;
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 10px 10px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
 }
-
 
 .dropdown-content {
     display: none;
@@ -57,7 +56,7 @@ body {
 .dropdown-content a {
     float: none;
     color: black;
-    padding: 12px 16px;
+    padding: 10px 10px;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -75,6 +74,34 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
 }
 
 #offerts {
