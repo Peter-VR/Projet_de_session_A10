@@ -40,8 +40,8 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Send Message</a>
-                <a href="#">List of Messages</a>
+                <a href="MessageServlet">Send Message</a>
+                <a href="MessageServlet">List of Messages</a>
                 <a href="#">Search Message</a>
                 <a href="#">Evaluate work</a>
                 <a href="#">List of Evaluation</a>
@@ -52,7 +52,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Create new Nature Travail</a>
+                <a href="insertnaturetravail.jsp">Create new Nature Travail</a>
                 <a href="#">List of Natures Travail</a>
                 <a href="#">Search Nature Travail</a>
             </div>

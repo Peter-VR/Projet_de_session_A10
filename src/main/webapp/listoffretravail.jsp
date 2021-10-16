@@ -1,31 +1,9 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Liste Offre Travail</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
-
 <fmt:setLocale value="${sessionScope.langue}"/>
-
-<fmt:bundle basename="langue">
-    <%
-        if (null == session.getAttribute("idPersonne")) { %>
-    <h3>User not logged in.</h3>
-    <%
-    } else { %>
-    <h3>User logged in.</h3>
-    <% }
-    %>
-    <jsp:include page="navbar.jsp" />
+<fmt:setBundle basename="langue"/>
+<jsp:include page="header.jsp"/>
 
     <div class="container">
         <div class="row">
@@ -96,14 +74,4 @@
         }
     %>
 
-            <jsp:include page="footer.jsp"/>
-
-
-</fmt:bundle>
-
-<script src="js/scripts.js"/>
-
-
-</body>
-</html>
-
+<jsp:include page="footer.jsp"/>

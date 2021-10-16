@@ -1,5 +1,3 @@
-
-
 <div style="
 
 
@@ -13,11 +11,14 @@
 
 
 ">
-  <p style="vertical-align: center;
+    <p style="vertical-align: center;
 padding-top: 10px;">
-    Project Session A10/A11 <br/>
-    Pedro Amado -
-    Mario Blanco -
-    Evgenii Niukhalov
-  </p>
+        Project Session A10/A11 <br/>
+        Pedro Amado -
+        Mario Blanco -
+        Evgenii Niukhalov
+    </p>
 </div>
+
+</body>
+</html>
