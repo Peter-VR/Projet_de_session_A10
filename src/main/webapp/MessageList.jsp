@@ -1,18 +1,17 @@
+<%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Liste Message</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.langue}"/>
+<fmt:setBundle basename="langue"/>
+<jsp:include page="header.jsp"/>
 
 <div class="row">
+    <div class="row">
+        <div class="col-6">
+            <h1><fmt:message key="message_list"/></h1>
+        </div>
+    </div>
     <div class="col-9">
-        MessageList
         <c:choose>
             <c:when test="${empty list}">
                 <h2>Liste vide</h2>
@@ -39,7 +38,7 @@
                             <td>${element.idpersonneenvoyer}</td>
                             <td>${element.idpersonnerecevoir}</td>
                             <td><a href="MessageDeleteServlet?id=${element.idmessage}">
-                                <img class="option" src="images/delete.png"></a></td>
+                                <img class="option" src="images/delete.png" alt=""></a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -48,5 +47,4 @@
     </div>
 </div>
 
-</body>
-</html>
+<jsp:include page="footer.jsp"/>
