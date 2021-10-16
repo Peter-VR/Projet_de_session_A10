@@ -71,6 +71,18 @@
                     <label for="duree">Duree:</label>
                     <input type="text" class="form-control" id="duree" name="duree" value="${offre.duree}">
                 </div>
+                <div style="text-align: right" class="form-group">
+                <label for="etat">Etat:</label>
+                        <select id="etat" name="etat">
+                            <option value="0">Select Status:</option>
+                            <option value="1">attend</option>
+                            <option value="2">pris</option>
+                            <option value="3">complete</option>
+                            <option value="4">annule</option>
+
+                        </select>
+                </div>
+
 
 
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -87,7 +99,7 @@
 
 </fmt:bundle>
 
-<script src="js/scripts.js"/>
+
 
 
 </body>

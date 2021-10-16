@@ -60,6 +60,8 @@
                         <th><fmt:message key="etat_offer"/></th>
                         <th><fmt:message key="budget"/></th>
                         <th><fmt:message key="duree"/></th>
+                        <th><fmt:message key="creation"/></th>
+                        <th><fmt:message key="modification"/></th>
                         <th><fmt:message key="options"/></th>
                     </tr>
 
@@ -71,6 +73,8 @@
                             <td>${element.etatoffre}</td>
                             <td>${element.budget}</td>
                             <td>${element.duree}</td>
+                            <td>${element.datecreationoffre}</td>
+                            <td>${element.datederniermodification}</td>
                             <td><a href="DeleteOffreServlet?id=${element.idoffretravail}"><img class="option" src="images/delete.png"></a>
                             <a href="EditOffreServlet?id=${element.idoffretravail}"><img class="option" src="images/edit.png"></a> </td>
 
