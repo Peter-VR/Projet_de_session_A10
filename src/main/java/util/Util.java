@@ -9,11 +9,13 @@ import java.io.IOException;
 public class Util {
     public static void forward(String jsp, HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/jsp/" + jsp).forward(request, response);
+        //request.getRequestDispatcher("WEB-INF/jsp/" + jsp).forward(request, response);
+        request.getRequestDispatcher(jsp).forward(request, response);
     }
 
     public static boolean isLoggedIn(HttpSession session) {
-        return session.getAttribute("idPersonne") != null;
+        return session != null
+                && session.getAttribute("idPersonne") != null;
     }
 
     public static Integer getLoggedId(HttpServletRequest request) {
