@@ -57,7 +57,7 @@
             <form action="InsertOffreTravailServlet" method="post">
                 <div style="text-align: right" class="form-group">
                     <label for="nom">Nom:</label>
-                    <input type="text" class="form-control" id="nom" name="nom" value="${offre.idoffretravail}">
+                    <input type="text" class="form-control" id="nom" name="nom" value="${offre.nom}">
                 </div>
                 <div style="text-align: right" class="form-group">
                     <label for="description">Description:</label>
@@ -72,17 +72,18 @@
                     <input type="text" class="form-control" id="duree" name="duree" value="${offre.duree}">
                 </div>
                 <div style="text-align: right" class="form-group">
-                <label for="etat">Etat:</label>
+                <label for="etat">Etat:${offre.etatoffre}</label>
                         <select id="etat" name="etat">
-                            <option value="0">Select Status:</option>
-                            <option value="1">attend</option>
-                            <option value="2">pris</option>
-                            <option value="3">complete</option>
-                            <option value="4">annule</option>
+                            <option value="attend" ${offre.etatoffre == 'attend' ? 'selected' : ''}>Attend</option>
+                            <option value="pris" ${offre.etatoffre == 'pris' ? 'selected' : ''}>Pris</option>
+                            <option value="complete" ${offre.etatoffre == 'complete' ? 'selected' : ''}>Complete</option>
+                            <option value="annule" ${offre.etatoffre == 'annule' ? 'selected' : ''}>Annule</option>
 
                         </select>
                 </div>
-
+                <input type="hidden" value="edit" name="edit" id="edit">
+                <input type="hidden" value="${offre.idoffretravail}" name="idoffre" id="idoffre">
+                <input type="hidden" value="${offre.datecreationoffre}" name="creation" id="creation">
 
 
                 <button type="submit" class="btn btn-primary">Submit</button>

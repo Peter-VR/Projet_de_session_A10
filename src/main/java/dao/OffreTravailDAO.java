@@ -33,7 +33,9 @@ public class OffreTravailDAO {
         EntityManager entityManager = emfactory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
+
         Offretravail offretravail = entityManager.find(Offretravail.class, idOffreTravail);
+
         try {
             transaction.begin();
             entityManager.remove(offretravail);
@@ -41,6 +43,23 @@ public class OffreTravailDAO {
         } finally {
             entityManager.close();
             emfactory.close();
+        }
+    }
+
+    public static void update(Offretravail offremodified) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            transaction.begin();
+            entityManager.merge(offremodified);
+            transaction.commit();
+        } finally {
+            entityManager.close();
+            entityManagerFactory.close();
         }
     }
 

@@ -19,8 +19,6 @@ public class ListOffreTravailServlet extends HttpServlet {
         request.setAttribute("mylist", list);
         System.out.println(list);
 
-
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("listoffretravail.jsp");
         dispatcher.forward( request, response );
 
@@ -28,6 +26,6 @@ public class ListOffreTravailServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request,response);
     }
 }
