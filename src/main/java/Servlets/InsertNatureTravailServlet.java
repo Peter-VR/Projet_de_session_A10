@@ -1,6 +1,6 @@
 package Servlets;
 
-import dao.NatureTravailDAO;
+import dao.NatureTravailDao;
 import entities.Naturetravail;
 
 import javax.servlet.*;
@@ -23,7 +23,7 @@ public class InsertNatureTravailServlet extends HttpServlet {
         Naturetravail naturetravail = new Naturetravail();
         naturetravail.setNom(nom);
 
-        NatureTravailDAO.insert(naturetravail);
+        NatureTravailDao.insert(naturetravail);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward( request, response );

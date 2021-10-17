@@ -1,8 +1,6 @@
 package dao;
 
-import entities.Message;
 import entities.Naturetravail;
-import entities.Offretravail;
 import javax.persistence.*;
 import java.util.List;
 
