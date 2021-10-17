@@ -36,13 +36,21 @@
             </div>
         </li>
         <li class="dropdown">
-            <button class="dropbtn"><fmt:message key="communication"/>
+            <button class="dropbtn">Message
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="MessageServlet">Send Message</a>
-                <a href="MessageServlet">List of Messages</a>
-                <a href="#">Search Message</a>
+                <a href="MessageServlet?mode=inbox">Inbox</a>
+                <a href="MessageServlet?mode=sent">Sent</a>
+                <a href="MessageServlet?mode=compose">Compose</a>
+                <a href="MessageServlet?mode=search">Search</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <button class="dropbtn">Evaluation
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
                 <a href="#">Evaluate work</a>
                 <a href="#">List of Evaluation</a>
             </div>

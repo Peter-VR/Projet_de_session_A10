@@ -44,6 +44,20 @@ public class MessageDao {
         }
     }
 
+    public static void delete(Integer id) {
+        if (id == null)
+            return;
+        var manager = factory.createEntityManager();
+        try {
+            manager.getTransaction().begin();
+            var entity = manager.find(Message.class, id);
+            manager.remove(entity);
+            manager.getTransaction().commit();
+        } finally {
+            manager.close();
+        }
+    }
+
     public static List<Message> find(String hql, Object... params) {
         var manager = factory.createEntityManager();
         try {
@@ -64,6 +78,10 @@ public class MessageDao {
     }
 
     public static List<Message> findFrom(Integer idPersonne) {
-        return find("from Message m where m.idpersonneenvoyer=?1", idPersonne);
+        return find("from Message m where m.idpersonneenvoyer=?1 order by datemessage desc", idPersonne);
+    }
+
+    public static List<Message> findTo(Integer idPersonne) {
+        return find("from Message m where m.idpersonnerecevoir=?1 order by datemessage desc", idPersonne);
     }
 }

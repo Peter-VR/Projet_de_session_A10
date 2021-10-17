@@ -23,27 +23,37 @@ public class MessageServlet extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("list", MessageDao.find());
-        request.setAttribute("list", MessageDao.findFrom(3));
-        //request.setAttribute("list", MessageDao.findFrom(Util.getLoggedId(request)));
-        Util.forward("MessageList.jsp", request, response);
-        /*
-        switch (request.getParameter("mode")) {
-            case "auth":
-                if ("secret".equals(request.getParameter("pass"))) {
-                    request.getRequestDispatcher("find.jsp").forward(request, response);
-                } else {
-                    request.getRequestDispatcher("wrongPass.jsp").forward(request, response);
-                }
-                break;
-
-            case "find":
-                TrainingDao dao = new TrainingDao();
-                ArrayList<Training> list = dao.find(request.getParameter("lang"));
-                request.setAttribute("list", list);
-                request.getRequestDispatcher("findResult.jsp").forward(request, response);
-                break;
+        if (!Util.isLoggedIn(request)) {
+            Util.forward("login.jsp", request, response);
+            return;
         }
-        */
+
+        switch (request.getParameter("mode")) {
+            case "inbox":
+                request.setAttribute("list", MessageDao.findTo(Util.getLoggedId(request)));
+                Util.forward("MessageList.jsp", request, response);
+                return;
+
+            case "sent":
+                request.setAttribute("list", MessageDao.findFrom(Util.getLoggedId(request)));
+                Util.forward("MessageList.jsp", request, response);
+                return;
+
+            case "delete":
+                var id = Util.tryParse(request.getParameter("id"));
+                MessageDao.delete(id);
+                Util.redirectToReferrer(request, response, "MessageServlet?mode=search");
+                return;
+
+            case "compose":
+                request.setAttribute("from", Util.getLoggedId(request));
+                Util.forward("MessageCompose.jsp", request, response);
+                return;
+
+            case "composeSubmit":
+                request.setAttribute("list", MessageDao.findFrom(Util.getLoggedId(request)));
+                Util.forward("MessageList.jsp", request, response);
+                return;
+        }
     }
 }
