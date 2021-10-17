@@ -34,6 +34,8 @@ public class MessageServlet extends HttpServlet {
             return;
         }
 
+        Integer fromId, toId;
+        String subject, content;
         switch (request.getParameter("mode")) {
             case "inbox":
                 request.setAttribute("list", MessageDao.findTo(Util.getLoggedId(request)));
@@ -46,23 +48,35 @@ public class MessageServlet extends HttpServlet {
                 return;
 
             case "delete":
-                var id = Util.tryParse(request.getParameter("id"));
-                MessageDao.delete(id);
+                var mid = Util.tryParse(request.getParameter("id"));
+                MessageDao.delete(mid);
                 Util.redirectToReferrer(request, response, "MessageServlet?mode=search");
                 return;
 
             case "compose":
-                request.setAttribute("from", Util.getLoggedId(request));
                 Util.forward("MessageCompose.jsp", request, response);
                 return;
 
             case "composeSubmit":
-                var toUserId = Util.tryParse(request.getParameter("to"));
-                var subject = request.getParameter("subject");
-                var content = request.getParameter("content");
-                var m = new Message(Util.getLoggedId(request), toUserId, subject, content);
+                toId = Util.tryParse(request.getParameter("to"));
+                subject = request.getParameter("subject");
+                content = request.getParameter("content");
+                var m = new Message(Util.getLoggedId(request), toId, subject, content);
                 MessageDao.insert(m);
                 response.sendRedirect("MessageServlet?mode=sent");
+                return;
+
+            case "search":
+                Util.forward("MessageSearch.jsp", request, response);
+                return;
+
+            case "searchSubmit":
+                fromId = Util.tryParse(request.getParameter("from"));
+                toId = Util.tryParse(request.getParameter("to"));
+                subject = request.getParameter("subject");
+                content = request.getParameter("content");
+                request.setAttribute("list", MessageDao.find(fromId, toId, subject, content));
+                Util.forward("MessageList.jsp", request, response);
                 return;
         }
     }
