@@ -1,3 +1,8 @@
+/*
+ * Created by: Mario Blanco
+ * Project: A10
+ * */
+
 package entities;
 
 import javax.persistence.Basic;
