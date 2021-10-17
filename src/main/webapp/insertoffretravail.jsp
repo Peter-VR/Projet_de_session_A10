@@ -5,7 +5,6 @@
 <fmt:setBundle basename="langue"/>
 <jsp:include page="header.jsp"/>
 
-    <div class="container">
         <div class="row">
             <div class="col-6">
                 <h1><fmt:message key="insert_work_offer"/></h1>
@@ -24,9 +23,8 @@
         %>
 
 
-    </div>
     <div class="row">
-        <div style="width: 60%;margin: auto;">
+        <div class="col-80">
             <form action="InsertOffreTravailServlet" method="post">
                 <div style="text-align: right" class="form-group">
                     <label for="nom">Nom:</label>

@@ -5,7 +5,15 @@
 <fmt:setBundle basename="langue"/>
 <jsp:include page="header.jsp"/>
 
-<h1><fmt:message key="title"/></h1>
-<img style="margin-top:10px;width: 100%;text-align: center" src="images/hiring-contractor.jpg" alt="">
+<div class="row">
+    <div class="col-100">
+        <h1><fmt:message key="title"/></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-100">
+        <img src="images/hiring-contractor.jpg" class="col-100" alt="">
+    </div>
+</div>
 
 <jsp:include page="footer.jsp"/>

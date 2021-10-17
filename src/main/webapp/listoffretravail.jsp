@@ -5,7 +5,6 @@
 <fmt:setBundle basename="langue"/>
 <jsp:include page="header.jsp"/>
 
-    <div class="container">
         <div class="row">
             <div class="col-6">
                 <h1><fmt:message key="liste_offre_travail"/></h1>
@@ -23,14 +22,10 @@
         } else {
         %>
 
-    </div>
-
-
-
     <div class="row">
-        <div class="col-9">
+        <div class="col-100">
             <c:if test="${not empty mylist}">
-                <table class="table" id="offerts">
+                <table class="table" id="tbl">
                     <tr>
                         <th><fmt:message key="ID"/></th>
                         <th><fmt:message key="name"/></th>
@@ -65,11 +60,7 @@
                 <h2><fmt:message key="empty_list"/></h2>
             </c:if>
         </div>
-
-
-
-
-
+    </div>
     <%
         }
     %>

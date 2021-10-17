@@ -5,14 +5,13 @@
 <fmt:setBundle basename="langue"/>
 <jsp:include page="header.jsp"/>
 
-<div class="container">
     <div class="row">
         <div class="col-6">
             <h1>Insert <fmt:message key="nature_travail"/></h1>
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-9">
             <form action="InsertNatureTravailServlet" method="post">
                 <div class="form-group">
                     <label for="nom">Nom:</label>
@@ -22,6 +21,5 @@
             </form>
         </div>
     </div>
-</div>
 
 <jsp:include page="footer.jsp"/>

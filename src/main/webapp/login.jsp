@@ -5,9 +5,9 @@
 <fmt:setBundle basename="langue"/>
 <jsp:include page="header.jsp"/>
 
-<div class="container">
     <div class="row">
-        <div class="col-12 align-content-center">
+        <div class="col-20">&nbsp;</div>
+        <div class="col-40 align-content-center">
             <h1 style="text-align: center"><fmt:message key="login_form"/></h1>
 
 
@@ -16,7 +16,7 @@
                     <img src="images/pngtree-user.jpg" alt="Avatar" class="avatar">
                 </div>
 
-                <div class="container">
+                <div>
                     <label for="id"><b><fmt:message key="person_id"/></b></label>
                     <input type="text" placeholder="<fmt:message key="person_id"/>" name="id" id="id" required>
                     <br/>
@@ -29,6 +29,5 @@
             </form>
         </div>
     </div>
-</div>
 
 <jsp:include page="footer.jsp"/>
