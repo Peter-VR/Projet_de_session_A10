@@ -1,48 +1,70 @@
 package dao;
 
 import entities.Offretravail;
-import entities.Personne;
-
 import javax.persistence.*;
 import java.util.List;
 
 public class OffreTravailDAO {
 
-    //Entity Manager Factory
-    public static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    public static EntityManager entityManager = entityManagerFactory.createEntityManager();
-
 
     //Insertion
-    public static void insert(Offretravail offretravail){
+    public static void insert(Offretravail offretravail) {
         //Creation de l'objet transaction
-        EntityTransaction transaction = entityManager.getTransaction();
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entitymanager = emfactory.createEntityManager();
+
+        EntityTransaction transaction = entitymanager.getTransaction();
 
         try {
             transaction.begin();
-            entityManager.persist(offretravail);
+            entitymanager.persist(offretravail);
             transaction.commit();
         } finally {
-            entityManager.close();
-            entityManagerFactory.close();
+            entitymanager.close();
+            emfactory.close();
         }
     }
 
-    public static void delete(int idOffreTravail){
+    public static void delete(int idOffreTravail) {
+
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = emfactory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
+
         Offretravail offretravail = entityManager.find(Offretravail.class, idOffreTravail);
+
         try {
             transaction.begin();
             entityManager.remove(offretravail);
             transaction.commit();
         } finally {
             entityManager.close();
+            emfactory.close();
+        }
+    }
+
+    public static void update(Offretravail offremodified) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            transaction.begin();
+            entityManager.merge(offremodified);
+            transaction.commit();
+        } finally {
+            entityManager.close();
             entityManagerFactory.close();
         }
     }
 
-    public static void updateDescription(int idOffreTravail, String description){
+    public static void updateDescription(int idOffreTravail, String description) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
         Offretravail offretravail = entityManager.find(Offretravail.class, idOffreTravail);
@@ -59,32 +81,51 @@ public class OffreTravailDAO {
         }
     }
 
-    public static List<Offretravail> getOffresTravails(){
+    public static List<Offretravail> getOffresTravails() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
         EntityTransaction transaction = entityManager.getTransaction();
-
         try {
-            Query query = entityManager.createQuery("select a from Offretravail a", Offretravail.class);
-            return query.getResultList();
-
-
+            return entityManager.createQuery("select a from Offretravail a", Offretravail.class)
+                    .getResultList();
         } finally {
             entityManager.close();
             entityManagerFactory.close();
         }
-
     }
 
     public static int nextID() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
-            Query query = entityManager.createQuery("select a from Offretravail a", Offretravail.class);
-            return query.getResultList().size()+1;
 
+            Query query = entityManager.createQuery("SELECT max(o.idoffretravail) FROM Offretravail o");
+            int maxID = (int)query.getSingleResult();
+
+            System.out.println(maxID);
+            return maxID+1;
 
         } finally {
             entityManager.close();
             entityManagerFactory.close();
         }
     }
+
+
+    public static Offretravail getOffre(int id){
+
+        EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = emfactory.createEntityManager();
+
+        Offretravail offretravail = entityManager.find(Offretravail.class, id);
+
+        return offretravail;
+
+    }
+
+
 }

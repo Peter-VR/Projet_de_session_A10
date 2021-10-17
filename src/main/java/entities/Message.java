@@ -8,7 +8,7 @@ import java.sql.Date;
 
 @Entity
 public class Message {
-    private int idmessage;
+    private Integer idmessage;
     private String objet;
     private String contenu;
     private Date datemessage;
@@ -18,11 +18,11 @@ public class Message {
 
     @Id
     @Column(name = "IDMESSAGE")
-    public int getIdmessage() {
+    public Integer getIdmessage() {
         return idmessage;
     }
 
-    public void setIdmessage(int idmessage) {
+    public void setIdmessage(Integer idmessage) {
         this.idmessage = idmessage;
     }
 
@@ -93,7 +93,7 @@ public class Message {
 
         Message message = (Message) o;
 
-        if (idmessage != message.idmessage) return false;
+        if (!idmessage.equals(message.idmessage)) return false;
         if (objet != null ? !objet.equals(message.objet) : message.objet != null) return false;
         if (contenu != null ? !contenu.equals(message.contenu) : message.contenu != null) return false;
         if (datemessage != null ? !datemessage.equals(message.datemessage) : message.datemessage != null) return false;
@@ -116,5 +116,18 @@ public class Message {
         result = 31 * result + (idpersonneenvoyer != null ? idpersonneenvoyer.hashCode() : 0);
         result = 31 * result + (idpersonnerecevoir != null ? idpersonnerecevoir.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "idmessage=" + idmessage +
+                ", objet='" + objet + '\'' +
+                ", contenu='" + contenu + '\'' +
+                ", datemessage=" + datemessage +
+                ", etatmessage='" + etatmessage + '\'' +
+                ", idpersonneenvoyer=" + idpersonneenvoyer +
+                ", idpersonnerecevoir=" + idpersonnerecevoir +
+                '}';
     }
 }

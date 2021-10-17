@@ -1,9 +1,11 @@
 package dao;
 
-import entities.Offretravail;
 import entities.Soumission;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import java.util.List;
 
 public class SoumissionDAO {
@@ -14,7 +16,7 @@ public class SoumissionDAO {
 
 
     //Insertion
-    public static void insert(Soumission soumission){
+    public static void insert(Soumission soumission) {
         //Creation de l'objet transaction
         EntityTransaction transaction = entityManager.getTransaction();
 
@@ -28,7 +30,7 @@ public class SoumissionDAO {
         }
     }
 
-    public static void delete(int idSoumission){
+    public static void delete(int idSoumission) {
 
         EntityTransaction transaction = entityManager.getTransaction();
         Soumission soumission = entityManager.find(Soumission.class, idSoumission);
@@ -42,7 +44,7 @@ public class SoumissionDAO {
         }
     }
 
-    public static void updateDescription(int idSoumission, String description){
+    public static void updateDescription(int idSoumission, String description) {
 
         EntityTransaction transaction = entityManager.getTransaction();
         Soumission soumission = entityManager.find(Soumission.class, idSoumission);
@@ -59,9 +61,8 @@ public class SoumissionDAO {
         }
     }
 
-    public static List<Soumission> getOffresTravails(){
-        Query query = entityManager.createQuery("select a from Soumission a", Soumission.class);
-        return query.getResultList();
+    public static List<Soumission> getOffresTravails() {
+        return entityManager.createQuery("select a from Soumission a", Soumission.class)
+                .getResultList();
     }
-
 }
