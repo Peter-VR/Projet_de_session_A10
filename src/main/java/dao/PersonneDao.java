@@ -8,11 +8,11 @@ public class PersonneDao {
 
     //Entity Manager Factory
     public static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    public static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     //Insertion
     public static void insert(Personne personne){
         //Creation de l'objet transaction
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
@@ -21,13 +21,14 @@ public class PersonneDao {
             transaction.commit();
         } finally {
             entityManager.close();
-            entityManagerFactory.close();
+
         }
     }
 
     //Supression
     public static void delete(int primaryKey){
         //Creation de l'objet transaction
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
@@ -40,13 +41,13 @@ public class PersonneDao {
             transaction.commit();
         } finally {
             entityManager.close();
-            entityManagerFactory.close();
         }
     }
 
     //Updating - modification
     public static void update(int primaryKey, String name){
         //Creation de l'objet transaction
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
@@ -62,7 +63,6 @@ public class PersonneDao {
             transaction.commit();
         } finally {
             entityManager.close();
-            entityManagerFactory.close();
         }
 
 

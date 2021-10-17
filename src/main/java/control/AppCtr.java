@@ -66,6 +66,19 @@ public class AppCtr {
         Date dateDernierModification = Date.valueOf(formatter.format(date));//converting string into sql date
         int idPersonne = pid;
 
+        Offretravail offretravail = new Offretravail();
+        offretravail.setIdoffretravail(idOffreTravail);
+        offretravail.setNom(nom);
+        offretravail.setDescription(description);
+        offretravail.setBudget(budget);
+        offretravail.setDuree(duree);
+        offretravail.setEtatoffre(etatOffre);
+        offretravail.setDatecreationoffre((java.sql.Date) dateCreationOffre);
+        offretravail.setDatederniermodification((java.sql.Date) dateDernierModification);
+        offretravail.setUtilisateurpersonneidpersonne(idPersonne);
+
+        OffreTravailDAO.insert(offretravail);
+
         //liste offre travail
         List<Offretravail> offres = OffreTravailDAO.getOffresTravails();
         for (Offretravail offre: offres
