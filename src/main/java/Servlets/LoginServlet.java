@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("uname"));
+        int id = Integer.parseInt(request.getParameter("id"));
         String password = request.getParameter("psw");
 
         int myid = PersonneDao.findOne(id, password);

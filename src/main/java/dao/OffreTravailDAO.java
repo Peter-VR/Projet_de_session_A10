@@ -1,8 +1,6 @@
 package dao;
 
-import entities.Message;
 import entities.Offretravail;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -104,19 +102,19 @@ public class OffreTravailDAO {
         EntityTransaction transaction = entityManager.getTransaction();
 
         try {
-            //TODO
-            /*
-            * select max id
-            * */
-            Query query = entityManager.createQuery("select a from Offretravail a", Offretravail.class);
-            return query.getResultList().size() + 1;
 
+            Query query = entityManager.createQuery("SELECT max(o.idoffretravail) FROM Offretravail o");
+            int maxID = (int)query.getSingleResult();
+
+            System.out.println(maxID);
+            return maxID+1;
 
         } finally {
             entityManager.close();
             entityManagerFactory.close();
         }
     }
+
 
     public static Offretravail getOffre(int id){
 
@@ -127,6 +125,7 @@ public class OffreTravailDAO {
 
         return offretravail;
 
-
     }
+
+
 }
