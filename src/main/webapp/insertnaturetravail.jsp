@@ -5,21 +5,21 @@
 <fmt:setBundle basename="langue"/>
 <jsp:include page="header.jsp"/>
 
-    <div class="row">
-        <div class="col-6">
-            <h1>Insert <fmt:message key="nature_travail"/></h1>
-        </div>
+<div class="row">
+    <div class="col-6">
+        <h1><fmt:message key="create"/> <fmt:message key="nature_travail"/></h1>
     </div>
-    <div class="row">
-        <div class="col-9">
-            <form action="InsertNatureTravailServlet" method="post">
-                <div class="form-group">
-                    <label for="nom">Nom:</label>
-                    <input type="text" class="form-control" id="nom" name="nom">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
+</div>
+<div class="row">
+    <div class="col-9">
+        <form action="InsertNatureTravailServlet" method="post">
+            <div class="form-group">
+                <label for="nom"><fmt:message key="name"/></label>
+                <input type="text" class="form-control" id="nom" name="nom">
+            </div>
+            <button type="submit" class="btn btn-primary"><fmt:message key="submit"/></button>
+        </form>
     </div>
+</div>
 
 <jsp:include page="footer.jsp"/>
