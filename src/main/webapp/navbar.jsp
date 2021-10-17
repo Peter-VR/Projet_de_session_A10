@@ -9,18 +9,20 @@
 <div class="topnav" id="myTopnav">
     <ul>
         <li><a href="index.jsp" class="active"><fmt:message key="home"/></a></li>
+<%--
         <li class="dropdown">
             <button class="dropbtn"><fmt:message key="accounts"/>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Register User</a>
-                <a href="#">Register Professional</a>
+                <a href="PersonneServlet">Register User</a>
+                <a href="PersonneServlet">Register Professional</a>
                 <a href="#">Search Person</a>
                 <a href="#">List Users</a>
                 <a href="#">List Professionals</a>
             </div>
         </li>
+--%>
         <li class="dropdown">
             <button class="dropbtn"><fmt:message key="offre"/>
                 <i class="fa fa-caret-down"></i>
@@ -40,12 +42,13 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="MessageServlet?mode=inbox">Inbox</a>
-                <a href="MessageServlet?mode=sent">Sent</a>
-                <a href="MessageServlet?mode=compose">Compose</a>
-                <a href="MessageServlet?mode=search">Search</a>
+                <a href="MessageServlet?mode=inbox"><fmt:message key="inbox"/></a>
+                <a href="MessageServlet?mode=sent"><fmt:message key="sent"/></a>
+                <a href="MessageServlet?mode=compose"><fmt:message key="compose"/></a>
+                <a href="MessageServlet?mode=search"><fmt:message key="search"/></a>
             </div>
         </li>
+<%--
         <li class="dropdown">
             <button class="dropbtn">Evaluation
                 <i class="fa fa-caret-down"></i>
@@ -55,14 +58,15 @@
                 <a href="#">List of Evaluation</a>
             </div>
         </li>
+--%>
         <li class="dropdown">
             <button class="dropbtn"><fmt:message key="nature_travail"/>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="insertnaturetravail.jsp">Create new Nature Travail</a>
-                <a href="#">List of Natures Travail</a>
-                <a href="#">Search Nature Travail</a>
+                <a href="insertnaturetravail.jsp"><fmt:message key="create"/></a>
+                <%--<a href="#">List of Natures Travail</a>--%>
+                <%--<a href="#">Search Nature Travail</a>--%>
             </div>
         </li>
         <li class="dropdown">

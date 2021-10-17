@@ -14,18 +14,18 @@
     <div class="col-100">
         <c:choose>
             <c:when test="${empty list}">
-                <h2>Liste vide</h2>
+                <h2><fmt:message key="empty_list"/></h2>
             </c:when>
             <c:otherwise>
                 <table class="table" id="tbl">
                     <tr>
-                        <th>ID</th>
-                        <th>objet</th>
-                        <th>contenu</th>
-                        <th>date</th>
-                        <th>from</th>
-                        <th>to</th>
-                        <th>Option</th>
+                        <th><fmt:message key="ID"/></th>
+                        <th><fmt:message key="Subject"/></th>
+                        <th><fmt:message key="Content"/></th>
+                        <th><fmt:message key="date"/></th>
+                        <th><fmt:message key="FromUserId"/></th>
+                        <th><fmt:message key="ToUserId"/></th>
+                        <th><fmt:message key="options"/></th>
                     </tr>
                     <c:forEach var="element" items="${list}">
                         <tr>
