@@ -6,6 +6,7 @@
 package Servlets;
 
 import dao.MessageDao;
+import entities.Message;
 import util.Util;
 
 import javax.servlet.ServletException;
@@ -56,8 +57,12 @@ public class MessageServlet extends HttpServlet {
                 return;
 
             case "composeSubmit":
-                request.setAttribute("list", MessageDao.findFrom(Util.getLoggedId(request)));
-                Util.forward("MessageList.jsp", request, response);
+                var toUserId = Util.tryParse(request.getParameter("to"));
+                var subject = request.getParameter("subject");
+                var content = request.getParameter("content");
+                var m = new Message(Util.getLoggedId(request), toUserId, subject, content);
+                MessageDao.insert(m);
+                response.sendRedirect("MessageServlet?mode=sent");
                 return;
         }
     }

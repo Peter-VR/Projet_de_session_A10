@@ -1,9 +1,6 @@
 package entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
@@ -16,7 +13,20 @@ public class Message {
     private Integer idpersonneenvoyer;
     private Integer idpersonnerecevoir;
 
+    public Message() {
+    }
+
+    public Message(Integer from, Integer to, String subject, String content) {
+        this.idpersonneenvoyer = from;
+        this.idpersonnerecevoir = to;
+        this.objet = subject;
+        this.contenu = content;
+        this.datemessage = new Date(System.currentTimeMillis());
+        this.etatmessage = "non_lu";
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "IDMESSAGE")
     public Integer getIdmessage() {
         return idmessage;

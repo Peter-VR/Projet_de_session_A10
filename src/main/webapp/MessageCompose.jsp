@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="row form-group">
-        <div class="col-20 right"><label>To:</label></div>
+        <div class="col-20 right"><label>To user Id:</label></div>
         <div class="col-80"><input type="text" class="form-control" name="to"></div>
     </div>
     <div class="row form-group">
