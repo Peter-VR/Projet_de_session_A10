@@ -14,7 +14,7 @@
         <div class="col-9">
             <form action="InsertNatureTravailServlet" method="post">
                 <div class="form-group">
-                    <label for="nom">Nom:</label>
+                    <label for="nom"><fmt:message key="name">:</label>
                     <input type="text" class="form-control" id="nom" name="nom">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>

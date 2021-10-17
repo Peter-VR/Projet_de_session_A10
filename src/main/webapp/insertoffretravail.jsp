@@ -27,19 +27,19 @@
         <div class="col-80">
             <form action="InsertOffreTravailServlet" method="post">
                 <div style="text-align: right" class="form-group">
-                    <label for="nom">Nom:</label>
+                    <label for="nom"><fmt:message key="name" />:</label>
                     <input type="text" class="form-control" id="nom" name="nom">
                 </div>
                 <div style="text-align: right" class="form-group">
-                    <label for="description">Description:</label>
+                    <label for="description"><fmt:message key="description"/>:</label>
                     <input type="text" class="form-control" id="description" name="description">
                 </div>
                 <div style="text-align: right" class="form-group">
-                    <label for="budget">Budget:</label>
+                    <label for="budget"><fmt:message key="budget"/>:</label>
                     <input type="text" class="form-control" id="budget" name="budget">
                 </div>
                 <div style="text-align: right" class="form-group">
-                    <label for="duree">Duree:</label>
+                    <label for="duree"><fmt:message key="duree">:</label>
                     <input type="text" class="form-control" id="duree" name="duree">
                 </div>
 

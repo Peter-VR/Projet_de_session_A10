@@ -27,28 +27,28 @@
         <div style="width: 60%;margin: auto;">
             <form action="InsertOffreTravailServlet" method="post">
                 <div style="text-align: right" class="form-group">
-                    <label for="nom">Nom:</label>
+                    <label for="nom"><fmt:message key="name"/> :</label>
                     <input type="text" class="form-control" id="nom" name="nom" value="${offre.nom}">
                 </div>
                 <div style="text-align: right" class="form-group">
-                    <label for="description">Description:</label>
+                    <label for="description"><fmt:message key="description"/>:</label>
                     <input type="text" class="form-control" id="description" name="description" value="${offre.description}">
                 </div>
                 <div style="text-align: right" class="form-group">
-                    <label for="budget">Budget:</label>
+                    <label for="budget"><fmt:message key="budget"/>:</label>
                     <input type="text" class="form-control" id="budget" name="budget" value="${offre.budget}">
                 </div>
                 <div style="text-align: right" class="form-group">
-                    <label for="duree">Duree:</label>
+                    <label for="duree"><fmt:message key="duree"/>:</label>
                     <input type="text" class="form-control" id="duree" name="duree" value="${offre.duree}">
                 </div>
                 <div style="text-align: right" class="form-group">
-                <label for="etat">Etat:${offre.etatoffre}</label>
+                <label for="etat"><fmt:message key="etat_offer"/>:${offre.etatoffre}</label>
                         <select id="etat" name="etat">
-                            <option value="attend" ${offre.etatoffre == 'attend' ? 'selected' : ''}>Attend</option>
-                            <option value="pris" ${offre.etatoffre == 'pris' ? 'selected' : ''}>Pris</option>
-                            <option value="complete" ${offre.etatoffre == 'complete' ? 'selected' : ''}>Complete</option>
-                            <option value="annule" ${offre.etatoffre == 'annule' ? 'selected' : ''}>Annule</option>
+                            <option value="attend" ${offre.etatoffre == 'attend' ? 'selected' : ''}><fmt:message key="attend"/></option>
+                            <option value="pris" ${offre.etatoffre == 'pris' ? 'selected' : ''}><fmt:message key="pris"/></option>
+                            <option value="complete" ${offre.etatoffre == 'complete' ? 'selected' : ''}><fmt:message key="complete"/></option>
+                            <option value="annule" ${offre.etatoffre == 'annule' ? 'selected' : ''}><fmt:message key="annule"/></option>
 
                         </select>
                 </div>

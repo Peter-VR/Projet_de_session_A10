@@ -152,4 +152,19 @@ public class Offretravail {
         result = 31 * result + (utilisateurpersonneidpersonne != null ? utilisateurpersonneidpersonne.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Offretravail{" +
+                "idoffretravail=" + idoffretravail +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                ", budget=" + budget +
+                ", duree=" + duree +
+                ", etatoffre='" + etatoffre + '\'' +
+                ", datecreationoffre=" + datecreationoffre +
+                ", datederniermodification=" + datederniermodification +
+                ", utilisateurpersonneidpersonne=" + utilisateurpersonneidpersonne +
+                '}';
+    }
 }

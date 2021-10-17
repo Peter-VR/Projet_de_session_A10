@@ -85,4 +85,20 @@ public class PersonneDao {
         else return person.getIdpersonne();
 
     }
+
+    public static int nextID() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        try {
+
+            Query query = entityManager.createQuery("SELECT max(p.idpersonne) FROM Personne p");
+            int maxID = (int)query.getSingleResult();
+
+            System.out.println(maxID);
+            return maxID+1;
+
+        } finally {
+            entityManager.close();
+        }
+    }
 }
