@@ -31,7 +31,6 @@ public class SoumissionDAO {
             transaction.commit();
         } finally {
             entityManager.close();
-            entityManagerFactory.close();
         }
     }
 
@@ -45,7 +44,6 @@ public class SoumissionDAO {
             transaction.commit();
         } finally {
             entityManager.close();
-            entityManagerFactory.close();
         }
     }
 
@@ -62,7 +60,6 @@ public class SoumissionDAO {
             transaction.commit();
         } finally {
             entityManager.close();
-            entityManagerFactory.close();
         }
     }
 
