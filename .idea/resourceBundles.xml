@@ -10,5 +10,11 @@
       <file value="file://$PROJECT_DIR$/src/main/resources/langue_fr_FR.properties" />
       <base-name>langue</base-name>
     </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/main/resources/langue.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/langue_es_ES.properties" />
+      <file value="file://$PROJECT_DIR$/src/main/resources/langue_fr_FR.properties" />
+      <base-name>langue</base-name>
+    </custom-resource-bundle>
   </component>
 </project>
