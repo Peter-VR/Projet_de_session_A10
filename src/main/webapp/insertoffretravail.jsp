@@ -39,7 +39,7 @@
                     <input type="text" class="form-control" id="budget" name="budget">
                 </div>
                 <div style="text-align: right" class="form-group">
-                    <label for="duree"><fmt:message key="duree">:</label>
+                    <label for="duree"><fmt:message key="duree"/>:</label>
                     <input type="text" class="form-control" id="duree" name="duree">
                 </div>
 
